@@ -1,0 +1,68 @@
+<ng-container *ngIf="projects">
+  <mat-toolbar>
+    <mat-form-field class="filter">
+      <mat-select [(value)]="selectedProjectId" (selectionChange)="changeProject()">
+        <mat-option *ngFor="let project of projects" [value]="project.projectId">{{ project.projectId |
+          uppercase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="filter repo-filter">
+      <mat-select [(value)]="selectedRepos">
+        <mat-option value="__all">All</mat-option>
+        <mat-option *ngFor="let repo of repos" [value]="repo.repoId">{{ repo.repoId }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="filter">
+      <mat-select [(value)]="selectedBranchType">
+        <mat-option *ngFor="let branchType of branchTypes" [value]="branchType">{{ branchType }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-toolbar>
+  <div class="content">
+    <ng-container *ngIf="branches">
+      <mat-table [dataSource]="filterBranches(branches)">
+        <ng-container matColumnDef="projectId">
+          <mat-header-cell *matHeaderCellDef> Project</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a [href]="element.links.project">
+              {{element.projectId | uppercase }}
+            </a>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="repoId">
+          <mat-header-cell *matHeaderCellDef> Repository</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a [href]="element.links.repo">{{element.repoId}}</a></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="branchId">
+          <mat-header-cell *matHeaderCellDef> Branch</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.branchId}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="buildStatus">
+          <mat-header-cell *matHeaderCellDef> Build</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a *ngIf="element.buildLinks && element.buildLinks.open" [href]="element.buildLinks.open" target="_blank">
+              <app-build-status [status]="element.buildStatus"></app-build-status>
+            </a>
+            <app-build-status *ngIf="!(element.buildLinks && element.buildLinks.open)"
+                              [status]="element.buildStatus"></app-build-status>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="buildLinks">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="accent" (click)="retryBuild(element)"
+                    *ngIf="element.buildLinks && element.buildLinks.retry">
+              <mat-icon>play_circle_outline</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </ng-container>
+  </div>
+</ng-container>
+

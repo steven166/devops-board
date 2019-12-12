@@ -1,0 +1,30 @@
+app:
+  bitbucket:
+    url: https://bitbucket.maxxton.com
+    username: <username>
+    password: <password>
+    projects:
+    - mxts
+    - mxtf
+
+  jenkins:
+    servers:
+      mxts:
+        url: https://jenkins-mxts.maxxton.com
+        username: <username>
+        password: <password>
+      mxtf:
+        url: https://jenkins-mxtf.maxxton.com
+        username: <username>
+        password: <password>
+      mcms:
+        url: https://jenkins-mcms.maxxton.com
+        username: <username>
+        password: <password>
+
+webscale:
+  logger:
+    level: info
+#    namespaces:
+#      '@webscale/datasource':
+#        level: debug

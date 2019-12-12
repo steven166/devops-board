@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+.succeed {
+  color: mat-color($mat-green, 500);
+}
+.failed {
+  color: mat-color($mat-red, 500);
+}
+.unknown {
+  color: mat-color($mat-gray, 700);
+}
+.undefined {
+  color: mat-color($mat-gray, 700);
+}
+.pending {
+  color: mat-color($mat-blue, 500);
+}
+.progress {
+  color: mat-color($mat-blue, 500);
+}

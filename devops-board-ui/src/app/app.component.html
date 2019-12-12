@@ -1,0 +1,43 @@
+<mat-toolbar class="toolbar"  color="primary">DevOps Board</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened="true" class="sidenav"
+               [fixedInViewport]="false">
+    <mat-nav-list>
+      <mat-list-item
+        routerLinkActive
+        #routerLinkActiveInstance="routerLinkActive"
+        [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+        [class.list-item-active]="routerLinkActiveInstance.isActive"
+        routerLink="builds"
+      >
+        <mat-icon matListIcon>cached</mat-icon>
+        <h3 matLine> Builds </h3>
+      </mat-list-item>
+      <mat-list-item
+        routerLinkActive
+        #routerLinkActiveInstance="routerLinkActive"
+        [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+        [class.list-item-active]="routerLinkActiveInstance.isActive"
+        routerLink="pull-requests"
+      >
+        <mat-icon matListIcon>call_merge</mat-icon>
+        <h3 matLine> Pull Requests </h3>
+      </mat-list-item>
+      <mat-list-item
+        routerLinkActive
+        #routerLinkActiveInstance="routerLinkActive"
+        [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+        [class.list-item-active]="routerLinkActiveInstance.isActive"
+        routerLink="releases"
+      >
+        <mat-icon matListIcon>play_circle_outline</mat-icon>
+        <h3 matLine> Releases </h3>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,4 @@
+<span [class]="status | lowercase" [title]="getTooltip(status)">
+  <mat-icon *ngIf="!shoudSpin(status)">{{ getIcon(status)}}</mat-icon>
+  <mat-spinner diameter="22" *ngIf="shoudSpin(status)"></mat-spinner>
+</span>

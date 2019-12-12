@@ -1,0 +1,9 @@
+
+export enum JenkinsResult {
+
+  SUCCESS = "SUCCESS",
+  UNSTABLE = "UNSTABLE",
+  FAILURE = "FAILURE",
+  NOT_BUILT = "NOT_BUILT",
+  ABORTED = "ABORTED"
+}

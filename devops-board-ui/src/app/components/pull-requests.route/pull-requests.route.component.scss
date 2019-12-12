@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+
+mat-table {
+  width: 100%;
+}
+
+.filter {
+  margin-right: 20px;
+}
+
+.repo-filter {
+  width: 300px;
+}
+
+.content {
+  overflow: auto;
+  height: 100%;
+}
+
+.ok-icon {
+  color: mat-color($mat-green, 500);
+}
+.error-icon {
+  color: mat-color($mat-red, 500);
+}
+
+.profile-picture {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
