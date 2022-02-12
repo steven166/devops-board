@@ -50,7 +50,7 @@
     "@webscale/collection": "0.3.2",
     "@webscale/collection-express-api": "0.3.3",
     "@webscale/collection-redis": "0.3.2",
-    "ajv": "^6.7.0",
+    "ajv": "^6.12.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.3",
