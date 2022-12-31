@@ -39,7 +39,7 @@
     "stryker": "^0.20.1",
     "stryker-api": "^0.14.0",
     "stryker-html-reporter": "^0.12.4",
-    "stryker-javascript-mutator": "^0.4.3",
+    "stryker-javascript-mutator": "^0.14.1",
     "stryker-mocha-framework": "^0.8.6",
     "stryker-mocha-runner": "^0.10.8",
     "tslint": "^5.9.1",
